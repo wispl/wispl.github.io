@@ -1,45 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>notes</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="light.css" media="(prefers-color-scheme: light)">
-    <link rel="stylesheet" href="dark.css" media="(prefers-color-scheme: dark)">
-    <script src="dark.js"></script>
-    <script src="toggle.js" defer></script>
-  </head>
-  <body>
-    <nav class="row row-gap row-start row-stretch" id="nav_margin">
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ section.title }}</h1>
+  Short form notes I have written for myself. These are usually intros to
+  topics I am learning and are rather incomplete and probably incorrect. 
+
+  <div class="column">
+    <div class="row row-start row-stretch row-gap">
       <div class="row">
 	<div class="medium_spacer space_navbar"></div>
 	<div>&nbsp;</div>
 	<div class="small_spacer space_navbar"></div>
       </div>
-      <a class="flatbutton flatbutton-minwidth-large row row-start" href="index.html">
-	<div class="square_icon"></div> HOME
-      </a>
-      <a class="flatbutton flatbutton-minwidth-large row row-start" href="archive.html">
-	<div class="square_icon"></div> ARCHIVE
-      </a>
-      <a class="flatbutton flatbutton-minwidth-large row row-start" href="notes.html" aria-current="page">
-	<div class="square_icon"></div> NOTES
-      </a>
-      <a class="flatbutton flatbutton-minwidth-large row row-start" href="about.html">
-	<div class="square_icon"></div> ABOUT
-      </a>
-      <button id="toggle_theme" class="row align_self_end" aria-label="Cycle between light, auto, and dark theme">
-	<svg xmlns="http://www.w3.org/2000/svg" class="icon auto" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="32" x2="128" y2="224" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="192" y1="56.45" x2="192" y2="199.55" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="160" y1="37.47" x2="160" y2="218.53" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
-	<svg xmlns="http://www.w3.org/2000/svg" class="icon sun" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm8,24a64,64,0,1,0,64,64A64.07,64.07,0,0,0,128,64ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"/></svg>
-	<svg xmlns="http://www.w3.org/2000/svg" class="icon moon" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"/></svg>
-      </button>
-    </nav>
-    <main class="content">
-      <h1>Notes</h1>
-      <div class = "column">
-	{NOTES}
+      <div class="column column-gap">
+	{% for page in section.pages %}
+	<a class="flatbutton flatbutton-minwidth-largest" href="{{ page.permalink | safe }}">
+	  <div class="row row-start"><div class="square_icon">
+	  </div>{{ page.title }}<div class="align_self_end">{{ page.date }}</div></div>
+	</a>
+	{% endfor %}
       </div>
-    </main>
-  </body>
-</html>
+    </div>
+  </div>
+{% endblock content %}

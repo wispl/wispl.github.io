@@ -1,0 +1,14 @@
+base_url = "https://wispl.github.io/"
+title = "Archive"
+description = "Archive"
+
+compile_sass = false
+build_search_index = false
+
+[extra]
+nav_items = [
+	{ url = "/", name = "HOME" },
+	{ url = "/archive", name = "ARCHIVE" },
+	{ url = "/notes", name = "NOTES" },
+	{ url = "/about", name = "ABOUT" }
+]

@@ -1,7 +1,8 @@
 ---
 title: OpenGL Renderer
 date: 2025-01-12
-abstract: |
+updated: 2025-06-15
+description: |
     And so states are often avoided, in pursuit for more a pure and stateless
     solution. After all, keeping track of numerous states is difficult and yet
     the US is bold enough to have 50 of them.
@@ -306,11 +307,21 @@ Will likely use a fiber based job system.
 ### Memory Pools
 
 Mostly dealing with defragmentation. In general it is a good idea to create
-several fixed sized pools.
+several fixed sized pools. There are a lot of implementations
+
+* memory arenas
+* slab allocators
+* linear allocators (might also be called an arena as well, not sure)
+* pool allocators
+* linked list for tracking allocations or free spaces
+
+Even with custom allocators like these, VirtualAlloc, discussed below, is still an option.
 
 * [r/vulkan dealing with memory defragmentation](https://www.reddit.com/r/vulkan/comments/zmpsga/how_to_deal_with_memory_fragmentation/)
 * [r/cpp dealing with memory fragmentation](https://www.reddit.com/r/cpp/comments/13fbixk/how_does_memory_pool_combat_memory_fragmentation/)
 * [r/cpp making my smart memory pool much smarter](https://www.reddit.com/r/cpp/comments/smnv24/making_my_smart_memory_pool_much_smarter_and/)
+* [r/c memory pool design](https://www.reddit.com/r/C_Programming/comments/pux8xe/question_regarding_pool_buffer_design_aka_memory/)
+* [bitsquid custom memory allocation in c++](https://bitsquid.blogspot.com/2010/09/custom-memory-allocation-in-c.html)
 
 ### Virtual Memory
 
@@ -344,5 +355,3 @@ examining the complexity.
 
 * [OurMachinary Commands Management](https://ruby0x1.github.io/machinery_blog_archive/post/vulkan-command-buffer-management/index.html)
 * [Sort-Based Render Calls](https://realtimecollisiondetection.net/blog/?p=86)
-
-

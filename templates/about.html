@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="margin_bottom-large">ABOUT</h1>
+    <section class="surface surface-pad surface-shadow column margin_bottom-large">
+      <div class="hline"></div>
+      <p class="surface-text">
+	Hobbies : chess, tetris, minesweeper(?!?)<br>
+	Likes : TUI, minimalism, C<br>
+	Dislikes : C<br><br>
+
+	A student interested in computer science and physics.<br>
+	Currently studying aerospace engineering.<br>
+	And also some programming on the side.
+
+	<div class="hline hline-margin_bottom"></div>
+	<!-- - TERMINAL - <br> -->
+      </p>
+      <div class="hline"></div>
+    </section>
+
+    <div class="margin_bottom-large">
+      <div class="hline hline-dark"></div>
+      <h2 class="no_margin surface-pad shadow">Code</h2>
+      <div class="hline hline-dark"></div>
+    </div>
+
+    <div class="row row-stretch row-start row-gap row-wrap margin_bottom-large">
+      <div class="row">
+       <div class="medium_spacer"></div>
+       <div>&nbsp;</div>
+       <div class="small_spacer"></div>
+      </div>
+
+      <div class="column column-gap row_item-grow">
+	<a href="https://github.com/wispl" class="row row-start flatbutton flatbutton-minwidth">
+	  <div class="square_icon"></div><div>GITHUB</div>
+	</a>
+	<a href="https://github.com/wispl/nix" class="row row-start flatbutton flatbutton-minwidth">
+	  <div class="square_icon"></div><div>DOTFILES</div>
+	</a>
+      </div>
+
+      <section class="surface surface-shadow row_item-grow">
+	<h4 class="header no_margin">System Info</h4>
+	<p class="text-light text-monospace row dark margin">
+\\  \\ //
+==\\__\\/ //
+ //   \\//
+==//     //==
+//\\___//
+// /\\  \\==
+// \\  \\
+	</p>
+	<p class="text-monospace row">
+terminal foot
+os       NixOS
+shell    bash
+wm       river
+term     foot
+editor   nvim
+website  yes
+	</p>
+      </section>
+
+      <section class="surface surface-shadow surface-maxwidth row_item-grow">
+	  <div class="header row row-start"><div class="square_icon shade"></div><h4 class="no_margin">Most Used Languages</h4></div>
+
+	<div class="surface-pad">
+	  <div class="hline"></div>
+	</div>
+
+	<div class="shade margin">
+	  <div class="row row-gap row-end surface-text-padvert">
+	    <div class="bar" style="height: 100px;"></div>
+	    <div class="bar" style="height:  60px;"></div>
+	    <div class="bar" style="height:  50px;"></div>
+	    <div class="bar" style="height:  43px;"></div>
+	    <div class="bar" style="height:  40px;"></div>
+	  </div>
+	</div>
+	<div class="row row-gap surface-pad margin margin_bottom-large">
+	  <div class="bar-text">C</div>
+	  <div class="bar-text">Java</div>
+	  <div class="bar-text">Rust</div>
+	  <div class="bar-text">Lua</div>
+	  <div class="bar-text">Kotlin</div>
+	</div>
+      </div>
+    </section>
+
+    <div class="surface surface-shadow row row-start row-stretch margin_bottom-large">
+      <div class="row">
+       <div class="medium_spacer dark"></div>
+       <div>&nbsp;</div>
+       <div class="small_spacer dark"></div>
+      </div>
+      <div class="surface-text surface-text-padvert">
+	The source of the website can found <a href="https://github.com/wispl/wispl.github.io">here</a>.
+	Javascript and localStorage is used only to save the color-scheme preference.
+      </div>
+    </div>
+{% endblock content %}

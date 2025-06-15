@@ -1,7 +1,7 @@
 ---
 title: Web Setup
 date: 2024-08-08
-abstract: DIY site, or how I subjected myself to gymnastics create a website.
+description: DIY site, or how I subjected myself to gymnastics create a website.
 ---
 
 Notes for how to setup this website. Unfortunately or fortunately, no static
@@ -91,6 +91,6 @@ something like `foreach( note, do_this )` would come a long way.
 The only benefit is the huge control I have over the stack. I might just explore
 static site generators which are less intrusive when I can't take anymore.
 
-11ty seems like a good option?
+11Ty seems like a good option?
 
 :)
