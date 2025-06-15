@@ -152,7 +152,7 @@ button {
 }
 
 .flatbutton {
-  font-size: clamp(8px, 2.5vw, 15px);
+  font-size: clamp(8px, 3vw, 15px);
 
   position: relative;
   padding: 2px 4px;
@@ -233,7 +233,7 @@ button {
 .medium_spacer {
   background-color: var(--shade);
   height: 100%;
-  width: 8px;
+  width: clamp(6px, 1vw, 8px);
 }
 
 .small_spacer {

@@ -2,9 +2,12 @@
 
 {% block content %}
   <h1>{{ section.title }}</h1>
-  Longer form notes... basically what this is, not a blog but just longer and
-  maybe more opinionated notes. Oh and these can still be incorrect too... I
-  guarantee nothing.
+  <div>
+    Longer form notes... is basically what this is, not a blog but just longer and
+    maybe more opinionated notes. Oh and these can still be incorrect too... I
+    guarantee nothing.
+  </div>
+
   <div class="column">
     {% for year, pages in section.pages | group_by(attribute="year") %}
     <h2>{{ year }}</h2>
