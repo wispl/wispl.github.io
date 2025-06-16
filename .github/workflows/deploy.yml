@@ -1,4 +1,4 @@
-name: Deploy to GH pages using Zola
+name: pages-deployment
 on:
   push:
     branches: ["main"]
@@ -36,7 +36,7 @@ jobs:
       - name: Build with Zola
         run: zola build          
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
      
