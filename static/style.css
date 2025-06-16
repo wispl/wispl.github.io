@@ -191,14 +191,6 @@ button {
   min-width: 156px;
 }
 
-.flatbutton-minwidth-larger {
-  min-width: 168px;
-}
-
-.flatbutton-minwidth-largest {
-  min-width: 284px;
-}
-
 .square {
   margin: 0px 4px;
   width: 4px;
