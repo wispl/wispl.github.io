@@ -1,14 +1,19 @@
 ---
 title: Web Setup
-date: 2024-08-08
+date: 2024-08-09
+updated: 2025-06-15
 description: DIY site, or how I subjected myself to gymnastics create a website.
 ---
+
+Edit: I started using Zola for site generation, having an actual templating
+language which is simple makes things a lot easier and clearer. I also enjoyed
+the simplicity of Zola as well, so overall, quite satisfied.
 
 Notes for how to setup this website. Unfortunately or fortunately, no static
 site generators were. No this is not hardcore, it is kind of brutal honestly.
 There is less between me and the notes. Close to the metal kind of thing...
 except I do not want to be close because the metal is a metal spike that is
-webdev.
+web dev.
 
 ## Components
 

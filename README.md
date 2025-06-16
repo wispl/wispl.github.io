@@ -5,11 +5,11 @@ from kanagawa.nvim.
 
 ## Publishing
 
-Uses an ad hoc Makefile + poor templating + pandoc system for publishing notes
+Uses Zola for building and publishing.
 
 ## Acknowledgements
 
-* [NieR:Automata UI Design DevBLog](https://www.platinumgames.com/official-blog/article/9624)
+* [NieR:Automata UI Design DevBlog](https://www.platinumgames.com/official-blog/article/9624)
 * [kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim)
 * [Phosphor Icons](https://phosphoricons.com/)
 * [latex-css](https://github.com/vincentdoerig/latex-css/tree/master)
