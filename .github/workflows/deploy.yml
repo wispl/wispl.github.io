@@ -3,6 +3,8 @@ on:
   push:
     branches: ["main"]
 
+  workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
@@ -20,24 +22,24 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      Zola_VERSION: 0.20.0
     steps:
       - name: Install Zola
-        uses: taiki-e/install-action@v2
-        with:
-          tool: zola@0.19.1      
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v3
-      - name: Build with Zola
         run: |
-          zola build          
+            wget -O "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
+            && sudo tar xzf - -C /usr/local/bin
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Build with Zola
+        run: zola build          
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./public
-
+     
   deploy:
     environment:
       name: github-pages
@@ -47,4 +49,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
