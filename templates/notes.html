@@ -14,9 +14,9 @@
 	<div>&nbsp;</div>
 	<div class="small_spacer space_navbar"></div>
       </div>
-      <div class="column column-gap">
+      <div class="column column-gap column-expand">
 	{% for page in section.pages %}
-	<a class="flatbutton flatbutton-minwidth-largest" href="{{ page.permalink | safe }}">
+	<a class="flatbutton" href="{{ page.permalink | safe }}">
 	  <div class="row row-start"><div class="square_icon">
 	  </div>{{ page.title }}<div class="align_self_end">{{ page.date }}</div></div>
 	</a>

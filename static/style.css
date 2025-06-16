@@ -119,6 +119,10 @@ button {
   gap: 16px;
 }
 
+.column-expand {
+  width: 88%
+}
+
 .row {
   display: flex;
 
@@ -300,12 +304,7 @@ button {
   }
 }
 
-#title-block-header {
-  margin-top: 8%;
-}
-
 .title {
-  /* font-size: 150%; */
   font-size: 2.5rem;
   margin-bottom: 0px;
 }
