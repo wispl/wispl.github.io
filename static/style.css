@@ -187,10 +187,6 @@ button {
   right: 0;
 }
 
-.flatbutton-minwidth {
-  min-width: 156px;
-}
-
 .square {
   margin: 0px 4px;
   width: 4px;
