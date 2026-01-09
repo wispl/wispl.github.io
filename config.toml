@@ -6,6 +6,16 @@ compile_sass = false
 build_search_index = false
 minify_html = true
 
+[markdown]
+highlight_code = true
+highlight_theme = "css"
+extra_syntaxes_and_themes = ["syntax"]
+
+highlight_themes_css = [
+  { theme = "kanagawa-dragon", filename = "syntax-dark.css" },
+  { theme = "kanagawa-lotus", filename = "syntax-light.css" },
+]
+
 [extra]
 nav_items = [
 	{ url = "/", name = "HOME" },

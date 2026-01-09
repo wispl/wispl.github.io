@@ -1,3 +1,5 @@
+@import url("syntax-dark.css");
+
 :root {
   color-scheme: dark;
   --surface:   #1e1d23;

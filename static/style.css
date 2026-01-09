@@ -343,3 +343,7 @@ pre code {
   background: var(--shade);
   scrollbar-color: var(--dark) var(--shade);
 }
+
+.z-code {
+  background: var(--shade);
+}
