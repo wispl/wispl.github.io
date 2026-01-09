@@ -101,7 +101,7 @@ just an extra large buffer on the GPU we can use. A uniform buffer object is
 similar, but faster, it is however, much smaller too.
 ```cpp
 std::vector<Material> mesh_materials = ...;
-glNamedBufferData(material_buffer, mesh_materials.size() * sizeof(material), mesh_materials.data(), flags)
+glNamedBufferData(material_buffer, mesh_materials.size() * sizeof(material), mesh_materials.data(), flags);
 glBindBufferBase(GL_SHADER_STORAGE_BUFFER, binding, material_buffer);
 ```
 Inefficiency aside, let's assume the `mesh_materials` contains the material
@@ -176,13 +176,13 @@ It just read my mind. With OpenGL Multi Draw Indirect (MDI), commands can be
 stored and then sent all at once.
 ```cpp
 struct DrawCommand {
-	std::uint32_t count;		    // how many indices
-	std::uint32_t instance_count;	// how many instances to draw
-	std::uint32_t first_index;	    // offset to the first indice
-	std::uint32_t base_vertex;	    // offset to the first vertex
-	std::uint32_t base_instance;	// offset for when drawing multiple instances
+	std::uint32_t count;            // how many indices
+	std::uint32_t instance_count;   // how many instances to draw
+	std::uint32_t first_index;      // offset to the first indice
+	std::uint32_t base_vertex;      // offset to the first vertex
+	std::uint32_t base_instance;    // offset for when drawing multiple instances
 };
-std::vector<DrawCommand> commands
+std::vector<DrawCommand> commands;
 
 glNamedBufferStorage(command_buffer, sizeof(DrawCommand) * commands.size(), commands.data(), GL_DYNAMIC_STORAGE_BIT);
 glBindBuffer(GL_DRAW_INDIRECT_BUFFER, command_buffer);
