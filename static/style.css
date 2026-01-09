@@ -159,7 +159,7 @@ button {
   font-size: clamp(8px, 3vw, 15px);
 
   position: relative;
-  padding: 2px 4px;
+  padding: 4px 4px;
 
   text-decoration: none;
   background-color: var(--shade);
