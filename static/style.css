@@ -8,6 +8,7 @@
 
 html {
   scrollbar-color: var(--shade) var(--bg);
+  scroll-behavior: smooth;
 }
 
 a {
@@ -18,7 +19,7 @@ a {
   flex-wrap: nowrap;
 
   height: 100%;
-  max-width: 800px;
+  max-width: 750px;
   margin: 0px auto;
   margin-top: 24px;
 
@@ -93,7 +94,7 @@ button {
 
 .content {
   height: 100%;
-  max-width: 800px;
+  max-width: 750px;
   margin: 0px auto;
   padding-bottom: 8%;
 
@@ -228,6 +229,12 @@ button {
   width: clamp(6px, 1vw, 8px);
 }
 
+.medium_small_spacer {
+  background-color: var(--shade);
+  height: 100%;
+  width: clamp(4px, 1vw, 6px);
+}
+
 .small_spacer {
   background-color: var(--shade);
   height: 100%;
@@ -293,7 +300,6 @@ button {
 }
 
 .title {
-  font-size: 2.5rem;
   margin-bottom: 0px;
 }
 
@@ -348,3 +354,43 @@ pre code {
 .z-code {
   background: var(--shade);
 }
+
+.grid {
+    display: grid;
+    grid-template-areas: "sidebar content";
+    grid-template-columns: 320px minmax(500px, 750px);
+}
+
+.grid-content {
+    grid-area: content;
+}
+
+.grid-toc {
+    grid-area: sidebar;
+    position: sticky;
+    top: 1rem;
+    padding-top: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: start;
+
+    a {
+	text-decoration: none;
+	font-size: 0.8rem;
+    }
+}
+
+.toc-ul {
+    list-style-type: none;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 1.5rem;
+
+    ul {
+	list-style-type: none;
+	line-height: 1.5rem;
+	padding-left: 12px;
+    }
+}
+

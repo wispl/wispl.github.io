@@ -2,35 +2,75 @@
 
 {% block content %}
 
-<h1 class="title">{{ page.title }}</h1>
-
-<div class="row row-gap row-start">
-  {% if page.date %}
-  <div class="row">
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><rect x="40" y="40" width="176" height="176" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="176" y1="24" x2="176" y2="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="80" y1="24" x2="80" y2="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="40" y1="88" x2="216" y2="88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="128" cy="132" r="12"/><circle cx="172" cy="132" r="12"/><circle cx="84" cy="172" r="12"/><circle cx="128" cy="172" r="12"/><circle cx="172" cy="172" r="12"/></svg>
-    <p>&nbsp {{ page.date }}</p>
+<main class="grid">
+  {% if page.toc %}
+  <div class="grid-toc">
+    <h3 class="margin_below">Table of Contents</h3>
+    <div class="row row-start row-stretch row-gap">
+    <div class="row">
+      <div class="medium_small_spacer"></div>
+      <div>&nbsp;</div>
+      <div class="small_spacer"></div>
+    </div>
+    <div>
+    <!-- <div class="row margin_below"> -->
+    <!--   <div class="square"></div> <div class="hline halfwidth"></div> <div class="square"></div> -->
+    <!-- </div> -->
+    <ul class="toc-ul">
+      {% for h1 in page.toc %}
+      <li>
+	<a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+	{% if h1.children %}
+	<ul>
+	  {% for h2 in h1.children %}
+	  <li>
+	    <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+	  </li>
+	  {% endfor %}
+	</ul>
+	{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+      </div>
+      </div>
+    <!-- <div class="row margin_below"> -->
+    <!--   <div class="square"></div> <div class="hline halfwidth"></div> <div class="square"></div> -->
+    <!-- </div> -->
   </div>
   {% endif %}
+  <div class="grid-content">
+    <h1 class="title">{{ page.title }}</h1>
+
+    <div class="row row-gap row-start">
+      {% if page.date %}
+      <div class="row">
+	<svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><rect x="40" y="40" width="176" height="176" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="176" y1="24" x2="176" y2="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="80" y1="24" x2="80" y2="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="40" y1="88" x2="216" y2="88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="128" cy="132" r="12"/><circle cx="172" cy="132" r="12"/><circle cx="84" cy="172" r="12"/><circle cx="128" cy="172" r="12"/><circle cx="172" cy="172" r="12"/></svg>
+	<p>&nbsp {{ page.date }}</p>
+      </div>
+      {% endif %}
 
   {% if page.updated %}
-  <div class="row">
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M92.69,216H48a8,8,0,0,1-8-8V163.31a8,8,0,0,1,2.34-5.65L165.66,34.34a8,8,0,0,1,11.31,0L221.66,79a8,8,0,0,1,0,11.31L98.34,213.66A8,8,0,0,1,92.69,216Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="136" y1="64" x2="192" y2="120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="164" y1="92" x2="68" y2="188" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="95.49" y1="215.49" x2="40.51" y2="160.51" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
-    <p>&nbsp Edited: {{ page.updated }}</p>
-  </div>
-  {% endif %}
-</div>
+      <div class="row">
+	<svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M92.69,216H48a8,8,0,0,1-8-8V163.31a8,8,0,0,1,2.34-5.65L165.66,34.34a8,8,0,0,1,11.31,0L221.66,79a8,8,0,0,1,0,11.31L98.34,213.66A8,8,0,0,1,92.69,216Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="136" y1="64" x2="192" y2="120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="164" y1="92" x2="68" y2="188" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="95.49" y1="215.49" x2="40.51" y2="160.51" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+	<p>&nbsp Edited: {{ page.updated }}</p>
+      </div>
+      {% endif %}
+    </div>
 
-{% if page.description %}
-<div class="abstract row row-start row-gap row-stretch"">
-  <div class="row">
-   <div class="medium_spacer"></div>
-   <div>&nbsp;</div>
-   <div class="small_spacer"></div>
-  </div>
-  <p>{{ page.description }}</p>
-</div>
-{% endif %}
+    {% if page.description %}
+    <div class="abstract row row-start row-gap row-stretch"">
+      <div class="row">
+	<div class="medium_spacer"></div>
+	<div>&nbsp;</div>
+	<div class="small_spacer"></div>
+      </div>
+      <p>{{ page.description }}</p>
+    </div>
+    {% endif %}
 
-{{ page.content | safe }}
+    {{ page.content | safe }}
+  </div>
+</main>
 
 {% endblock content %}
