@@ -6,7 +6,9 @@ compile_sass = false
 build_search_index = false
 minify_html = true
 
+
 [markdown]
+github_alerts = true
 highlight_code = true
 highlight_theme = "css"
 extra_syntaxes_and_themes = ["syntax"]
