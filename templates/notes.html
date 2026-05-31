@@ -3,8 +3,7 @@
 {% block entry %}
   <h1>{{ section.title }}</h1>
   <div class="margin_bottom-large">
-    Short form notes I have written for myself. These are usually introductions
-    to topics I am learning and are rather incomplete and mostly serve as a todo or collection of resources.
+    Short form notes I have written for myself through org-roam. They are basically like a personal wiki which tracks my though process through a topic. These are all the index pages.
   </div>
 
   <div class="column">
@@ -15,7 +14,8 @@
 	<div class="small_spacer space_navbar"></div>
       </div>
       <div class="column column-gap column-expand">
-	{% for page in section.pages %}
+	{% set index_tag = get_taxonomy_term(kind="tags", term="index") %}
+	{% for page in index_tag.pages %}
 	<a class="flatbutton" href="{{ page.permalink | safe }}">
 	  <div class="row row-start"><div class="square_icon">
 	  </div>{{ page.title }}<div class="align_self_end">{{ page.date }}</div></div>
