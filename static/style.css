@@ -369,8 +369,6 @@ pre code {
 .grid-content {
     grid-area: content;
     max-width: 750px;
-    margin-left: auto;
-    margin-right: auto;
 
     @media screen and (max-width: 800px) {
 	max-width: 100%;
