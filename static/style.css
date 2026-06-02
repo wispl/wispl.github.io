@@ -380,7 +380,7 @@ pre code {
     grid-area: sidebar;
     position: sticky;
     top: 1rem;
-    padding-top: 18px;
+    padding-top: 50px;
     margin-left: auto;
     margin-right: auto;
     align-self: start;
@@ -409,3 +409,17 @@ pre code {
     }
 }
 
+#backlink-graph {
+    border-radius: 8px;
+    border: 2px solid var(--shade);
+}
+
+#backlink-graph g text {
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+    fill: var(--fg);
+}
+
+#backlink-graph g circle:hover + text{
+    opacity: 1;
+}
