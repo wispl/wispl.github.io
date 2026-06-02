@@ -13,6 +13,8 @@ taxonomies = [
 [markdown]
 github_alerts = true
 highlight_code = true
+bottom_footnotes = true
+definition_list = true
 highlight_theme = "css"
 extra_syntaxes_and_themes = ["syntax"]
 
