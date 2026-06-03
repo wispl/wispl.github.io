@@ -1,6 +1,4 @@
 {
-  description = "Nix flake template for C";
-
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
   outputs = {

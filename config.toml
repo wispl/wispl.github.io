@@ -12,16 +12,13 @@ taxonomies = [
 
 [markdown]
 github_alerts = true
-highlight_code = true
 bottom_footnotes = true
 definition_list = true
-highlight_theme = "css"
-extra_syntaxes_and_themes = ["syntax"]
 
-highlight_themes_css = [
-  { theme = "kanagawa-dragon", filename = "syntax-dark.css" },
-  { theme = "kanagawa-lotus", filename = "syntax-light.css" },
-]
+[markdown.highlighting]
+style = "class"
+light_theme = "kanagawa-lotus"
+dark_theme = "kanagawa-dragon"
 
 [extra]
 nav_items = [
