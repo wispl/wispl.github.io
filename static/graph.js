@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = document.getElementsByClassName("title")[0].textContent;
     const backlinks = document.getElementsByClassName("backlinks");
 
-    const width = 300;
+    const width = 200;
     const height = 200;
 
     const nodes = [...backlinks].map(link => ({ id: link.textContent }));

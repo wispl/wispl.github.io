@@ -2,6 +2,7 @@
 !.gitignore
 
 courses/
+public/
 
 *.org
 *.aux

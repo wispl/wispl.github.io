@@ -3,42 +3,47 @@
 {% block content %}
 
 <main class="grid">
-  {% if page.toc %}
-  <div class="grid-toc">
-    <h3 class="margin_below">Table of Contents</h3>
-    <div class="row row-start row-stretch row-gap">
-    <div class="row">
-      <div class="medium_small_spacer"></div>
-      <div>&nbsp;</div>
-      <div class="small_spacer"></div>
-    </div>
-    <div>
-    <!-- <div class="row margin_below"> -->
-    <!--   <div class="square"></div> <div class="hline halfwidth"></div> <div class="square"></div> -->
-    <!-- </div> -->
+  <div class="grid-sidebar">
+    {% if page.backlinks %}
+    <h5 class="margin_below">Backlinks Graph</h5>
+    <svg id=backlink-graph width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    </svg>
+    <h5 class="no_margin_below">Backlinks </h5>
     <ul class="toc-ul">
-      {% for h1 in page.toc %}
-      <li>
-	<a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
-	{% if h1.children %}
-	<ul>
-	  {% for h2 in h1.children %}
+      {% for backlink in page.backlinks %}
+      <li><a class="backlinks" href="{{ backlink.permalink }}">{{ backlink.title }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if page.toc %}
+    <h5 class="no_margin_below">Table of Contents</h5>
+    <div class="margin row row-start row-stretch row-gap">
+      <div class="row"> <div class="medium_small_spacer"></div> <div>&nbsp;</div> <div class="small_spacer"></div> </div>
+      <div>
+	<ul class="toc-ul">
+	  {% for h1 in page.toc %}
 	  <li>
-	    <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+	    <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+	    {% if h1.children %}
+	    <ul>
+	      {% for h2 in h1.children %}
+	      <li>
+		<a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+	      </li>
+	      {% endfor %}
+	    </ul>
+	    {% endif %}
 	  </li>
 	  {% endfor %}
 	</ul>
-	{% endif %}
-      </li>
-      {% endfor %}
-    </ul>
       </div>
-      </div>
+    </div>
+    {% endif %}
+  </div>
     <!-- <div class="row margin_below"> -->
     <!--   <div class="square"></div> <div class="hline halfwidth"></div> <div class="square"></div> -->
     <!-- </div> -->
-  </div>
-  {% endif %}
   <div class="grid-content">
     <h1 class="title">{{ page.title }}</h1>
 
@@ -50,7 +55,7 @@
       </div>
       {% endif %}
 
-  {% if page.updated %}
+      {% if page.updated %}
       <div class="row">
 	<svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M92.69,216H48a8,8,0,0,1-8-8V163.31a8,8,0,0,1,2.34-5.65L165.66,34.34a8,8,0,0,1,11.31,0L221.66,79a8,8,0,0,1,0,11.31L98.34,213.66A8,8,0,0,1,92.69,216Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="136" y1="64" x2="192" y2="120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="164" y1="92" x2="68" y2="188" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="95.49" y1="215.49" x2="40.51" y2="160.51" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
 	<p>&nbsp Edited: {{ page.updated }}</p>
@@ -71,17 +76,6 @@
 
     {{ page.content | safe }}
 
-    {% if page.backlinks %}
-      <h2>Backlinks</h2>
-      <ul>
-	{% for backlink in page.backlinks %}
-	<li><a class="backlinks" href="{{ backlink.permalink }}">{{ backlink.title }}</a></li>
-	{% endfor %}
-      </ul>
-    {% endif %}
-
-    <svg id=backlink-graph width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-    </svg>
   </div>
 </main>
 
