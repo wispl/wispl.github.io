@@ -3,8 +3,12 @@
 import { forceSimulation, forceLink, forceManyBody, forceCenter } from "https://cdn.jsdelivr.net/npm/d3-force@3.0.0/+esm";
 
 document.addEventListener("DOMContentLoaded", () => {
-    const title = document.getElementsByClassName("title")[0].textContent;
+    const title = document.getElementsByClassName("title")[0]?.textContent;
     const backlinks = document.getElementsByClassName("backlinks");
+
+    if (backlinks.length === 0 || title === undefined) {
+	return;
+    }
 
     const width = 200;
     const height = 200;
