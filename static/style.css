@@ -11,6 +11,20 @@ html {
   scroll-behavior: smooth;
 }
 
+@view-transition {
+    navigation: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    @view-transition {
+        navigation: none;
+    }
+}
+
 a {
   color: inherit;
 }
