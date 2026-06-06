@@ -1,7 +1,6 @@
-{% extends "base.html" %}
+{% extends "base-navbar.html" %}
 
 {% block content %}
-
 <main class="grid">
   <div class="grid-sidebar">
     {% if page.backlinks %}
@@ -73,10 +72,7 @@
       <p>{{ page.description }}</p>
     </div>
     {% endif %}
-
     {{ page.content | safe }}
-
   </div>
 </main>
-
 {% endblock content %}

@@ -1,6 +1,7 @@
-{% extends "entry.html" %}
+{% extends "base-navbar.html" %}
 
-{% block entry %}
+{% block content %}
+<main class="content">
   <h1>{{ section.title }}</h1>
   <div class="margin_bottom-large">
     Short form notes I have written for myself through org-roam. They are
@@ -26,4 +27,5 @@
       </div>
     </div>
   </div>
-{% endblock entry %}
+</main>
+{% endblock content %}

@@ -1,6 +1,7 @@
-{% extends "entry.html" %}
+{% extends "base-navbar.html" %}
 
-{% block entry %}
+{% block content %}
+<main class="content">
     <h1 class="margin_bottom-large">About</h1>
     <section class="surface surface-pad surface-shadow column margin_bottom-large">
       <div class="hline"></div>
@@ -94,4 +95,5 @@ sleep   no
 	LocalStorage is used only to save the color-scheme preference. Javascript is used for the dark mode toggle as well as for populating the backlinks buffer using D3-force.
       </div>
     </div>
-{% endblock entry %}
+</main>
+{% endblock content %}

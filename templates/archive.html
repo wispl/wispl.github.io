@@ -1,6 +1,7 @@
-{% extends "entry.html" %}
+{% extends "base-navbar.html" %}
 
-{% block entry %}
+{% block content %}
+<main class="content">
   <h1>{{ section.title }}</h1>
   <div>
     Longer form notes. I usually write these for myself after processing through
@@ -30,4 +31,5 @@
     </div>
     {% endfor %}
   </div>
-{% endblock entry %}
+</main>
+{% endblock content %}
