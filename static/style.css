@@ -1,9 +1,15 @@
 :root {
-  font-size: clamp(14px, 2vw, 17px);
-  font-family: Roboto, Helvetica, sans-serif;
+    font-size: clamp(14px, 2vw, 17px);
+    font-family: Roboto, Helvetica, sans-serif;
 
-  background-color: var(--bg);
-  color: var(--fg);
+    background-color: var(--bg);
+    color: var(--fg);
+
+    --red: #c4746e;
+    --green: #8a9a7b;
+    --yellow: #c4b28a;
+    --blue: #8ba4b0;
+    --magenta: #a292a3;
 }
 
 html {
@@ -440,4 +446,50 @@ pre code {
 
 #backlink-graph g circle:hover + text{
     opacity: 1;
+}
+
+.markdown-alert-tip,
+.markdown-alert-note,
+.markdown-alert-warning {
+    border-left: 4px solid;
+    margin: 0px;
+    padding: 4px 1rem;
+    p { margin: 0; }
+}
+
+.markdown-alert-tip {
+    border-color: var(--green);
+    &::before {
+        content: "TIP";
+        color: var(--green);
+    }
+}
+
+.markdown-alert-note {
+    border-color: var(--blue);
+    &::before {
+        content: "NOTE";
+        color: var(--blue);
+    }
+}
+
+.markdown-alert-warning {
+    border-color: var(--yellow);
+    &::before {
+        content: "WARNING";
+        color: var(--yellow);
+    }
+}
+
+dl::before {
+    content: "DEFINITION";
+    color: var(--blue);
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin: 0;
 }
