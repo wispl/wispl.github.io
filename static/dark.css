@@ -1,13 +1,19 @@
 @import url("giallo-dark.css");
 
 :root {
-  color-scheme: dark;
-  --surface:   #1e1d23;
-  --bg:        #1a191e;
-  --shade:     #29292E;
-  --dark:      #524a51;
+    color-scheme: dark;
+    --surface:   #1e1d23;
+    --bg:        #1a191e;
+    --shade:     #29292E;
+    --dark:      #524a51;
 
-  --fg:        #aca9c2;
-  --fg-invert: #ded7d0;
-  --code:      #887c65;
+    --fg:        #aca9c2;
+    --fg-invert: #ded7d0;
+    --code:      #887c65;
+
+    --red: #c4746e;
+    --green: #8a9a7b;
+    --yellow: #c4b28a;
+    --blue: #8ba4b0;
+    --magenta: #a292a3;
 }

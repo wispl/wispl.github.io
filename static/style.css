@@ -4,12 +4,6 @@
 
     background-color: var(--bg);
     color: var(--fg);
-
-    --red: #c4746e;
-    --green: #8a9a7b;
-    --yellow: #c4b28a;
-    --blue: #8ba4b0;
-    --magenta: #a292a3;
 }
 
 html {
@@ -434,7 +428,7 @@ pre code {
 }
 
 #backlink-graph {
-    border-radius: 8px;
+    border-radius: 4px;
     border: 2px solid var(--shade);
 }
 
@@ -450,39 +444,35 @@ pre code {
 
 .markdown-alert-tip,
 .markdown-alert-note,
-.markdown-alert-warning {
-    border-left: 4px solid;
+.markdown-alert-warning,
+dl {
+    border-radius: 4px;
     margin: 0px;
     padding: 4px 1rem;
-    p { margin: 0; }
-}
-
-.markdown-alert-tip {
-    border-color: var(--green);
-    &::before {
-        content: "TIP";
-        color: var(--green);
+    border: 2px solid var(--shade);
+    p, dt {
+        margin: 0;
+        border-top: 2px solid var(--shade);
     }
 }
 
-.markdown-alert-note {
-    border-color: var(--blue);
-    &::before {
-        content: "NOTE";
-        color: var(--blue);
-    }
+.markdown-alert-tip::before {
+    content: "TIP";
+    color: var(--green);
 }
 
-.markdown-alert-warning {
-    border-color: var(--yellow);
-    &::before {
-        content: "WARNING";
-        color: var(--yellow);
-    }
+.markdown-alert-note::before {
+    content: "NOTE";
+    color: var(--blue);
+}
+
+.markdown-alert-warning::before {
+    content: "WARNING";
+    color: var(--yellow);
 }
 
 dl::before {
-    content: "DEFINITION";
+    content: "DEFINITIONS";
     color: var(--blue);
 }
 
