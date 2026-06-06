@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+
+{% block body %}
+<main class="content-center">
+  <div class="bordered-box">
+    <h4 class="no_margin text-center">Error 404: Not Found</h4>
+    <h5 class="no_margin text-center">uh oh</h5>
+    <div class="hline"></div>
+    <p class="text-center margin_below">Looks like we are lost, but that is fine...</p>
+  </div>
+
+  <div class="row row-gap row-start selection-box">
+    {% for nav in config.extra.nav_items %}
+    <a class="flatbutton row row-start" href="{{ nav.url }}">
+      <div class="square_icon"></div><div>{{ nav.name }}</div>
+    </a>
+    {% endfor %}
+  </div>
+  <p class="selection-box-text"> Choose one or not </p>
+</main>
+{% endblock body %}

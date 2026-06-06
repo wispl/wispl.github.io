@@ -483,3 +483,27 @@ dt {
 dd {
     margin: 0;
 }
+
+.bordered-box {
+    border: 2px solid var(--shade);
+    border-radius: 4px;
+    padding: 10px;
+
+    h5 {
+        padding-bottom: 8px;
+    }
+
+    p {
+        padding: 28px 15vw;
+    }
+}
+
+.selection-box {
+    padding: 28px 0px;
+    margin: 0px auto;
+}
+
+.selection-box-text {
+    padding: 0px 0px;
+    margin: 0px auto;
+}
