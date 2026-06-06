@@ -1,7 +1,7 @@
 +++
 title = "GitOps Pipelines Example"
 date = 2026-05-29
-updated= 2026-06-03
+updated= 2026-06-06
 +++
 
 ## Pipeline Config {#pipeline-config}
@@ -35,15 +35,16 @@ container:
     - buildah build -t "$CI_REGISTRY_IMAGE/container:${CI_COMMIT_SHA}" ./container
     - buildah push "$CI_REGISTRY_IMAGE/container:${CI_COMMIT_SHA}"
 
+# Note: I no longer use this method, see below
 make_commit:
   image: alpine/git # Might be better to just an alpine container and add git manually
   stage: deploy
   script:
-    - git config --global user.name "Evil Bot"
-    - git config --global user.email "EvilBot@evilplace.com"
+    - git config --global user.name "Worker Bot"
+    - git config --global user.email "WorkerBot@evilplace.com"
     - git clone "https://your.repo.com"
     # Edit your manifests using whatever: yq, sed, awk
-    # This one changes the image version, but you can do whatever your hear desires
+    # This one changes the image version, but you can do whatever your heart desires
     - yq -i '.images[].newTag = strenv(CI_COMMIT_SHA)' kustomization.yml
 
     # Commit and push!
@@ -53,6 +54,10 @@ make_commit:
 ```
 
 As an aside, when using `sed`, things get a bit trickly in regards to quoting, since you need quotes to expand the ENV variables, so you quote the whole thing and then use backslashes to escape the double quotes you want.
+
+EDIT: I don't think making commits against the manifests repository is a good idea. If you store code in the same repository as your manifests, than it is probably fine. But as is the case with GitOps, the manifest repository is stored elsewhere from the code.
+
+Having access tokens with write access to another repository is rather dangerous, and if you have multiple projects, then it isn't scalable to do this setup multiple times. Instead, even if you have to use polling, something like Renovate (running in manifests repository) or ArgoCD ImageUpdater (or Kargo) is better.
 
 
 ## Kustomization.yaml {#kustomization-dot-yaml}
