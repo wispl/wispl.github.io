@@ -1,8 +1,33 @@
-// import { select } from "https://cdn.skypack.dev/d3-selection";
-
-import { forceSimulation, forceLink, forceManyBody, forceCenter } from "https://cdn.jsdelivr.net/npm/d3-force@3.0.0/+esm";
+import { forceSimulation, forceLink, forceManyBody, forceCenter } from "d3-force";
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Theme toggle
+    const toggle = document.querySelector("#toggle_theme");
+    const icons = {
+	"light": document.querySelector(".sun"),
+	"auto": document.querySelector(".auto"),
+	"dark": document.querySelector(".moon")
+    };
+
+    const selected = localStorage.getItem("colorscheme") || "auto";
+    icons[selected].style.display = "block";
+
+    toggle.addEventListener("click", function(e) {
+	const current = localStorage.getItem("colorscheme") || "auto";
+	let theme;
+	switch(current) {
+	case "auto": theme = "dark";  break;
+	case "dark": theme = "light"; break;
+	case "light": theme = "auto"; break;
+	}
+
+	localStorage.setItem("colorscheme", theme);
+	icons[current].style.display = "none";
+	icons[theme].style.display = "block";
+	toggle_theme(theme);
+    });
+
+    // Backlinks Graph
     const title = document.getElementsByClassName("title")[0]?.textContent;
     const backlinks = document.getElementsByClassName("backlinks");
 

@@ -14,7 +14,10 @@
   in {
     devShells = forEachSupportedSystem ({pkgs}: {
       default = pkgs.mkShell {
-        packages = with pkgs; [zola];
+        packages = with pkgs; [
+          zola
+          nodejs_24
+        ];
       };
     });
   };

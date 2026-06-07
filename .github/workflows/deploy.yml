@@ -25,16 +25,21 @@ jobs:
     env:
       ZOLA_VERSION: 0.22.0
     steps:
-      - name: Install Zola
-        run: |
-            wget -O ${{ runner.temp }}/zola.tar.xz "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
-            && sudo tar xzf ${{ runner.temp }}/zola.tar.xz -C /usr/local/bin
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.1
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Build with Zola
-        run: zola build          
+
+      - name: Bundle Javascript
+        run: npm ci && npm run build
+
+      - name: Run Zola Build
+        run: |
+            image="ghcr.io/getzola/zola:${ZOLA_VERSION}"
+            workspace="${{ github.workspace }}"
+            docker run --rm -v "$workspace":/workspace -w "/workspace" "$image" build 
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
