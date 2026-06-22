@@ -2,6 +2,21 @@
     font-size: clamp(14px, 2vw, 17px);
     font-family: Roboto, Helvetica, sans-serif;
 
+    --surface:   light-dark(#d6d0b8, #1e1d23);
+    --bg:        light-dark(#c6c1aa, #1a191e);
+    --shade:     light-dark(#b4af9a, #29292E);
+    --dark:      light-dark(#4b483f, #524a51);
+
+    --fg:        light-dark(#46433a, #aca9c2);
+    --fg-invert: light-dark(#cdc7b0, #ded7d0);
+    --code:      light-dark(#887c65, #887c65);
+
+    --red:       light-dark(#c4746e, #c4746e);
+    --green:     light-dark(#6E915F, #8a9a7b);
+    --yellow:    light-dark(#de9800, #c4b28a);
+    --blue:      light-dark(#5d57a3, #8ba4b0);
+    --magenta:   light-dark(#a292a3, #a292a3);
+
     background-color: var(--bg);
     color: var(--fg);
 }
@@ -352,11 +367,12 @@ kbd {
   color: var(--code);
 }
 pre {
+  color-scheme: unset !important;
   padding: 1rem;
   max-width: 100%;
   overflow: auto;
   border-radius: 4px;
-  background: var(--shade);
+  background: var(--shade) !important;
 }
 pre code {
   color: var(--fg);
@@ -365,7 +381,8 @@ pre code {
 }
 
 .sourceCode {
-  background: var(--shade);
+  color-scheme: unset !important;
+  background: var(--shade) !important;
   scrollbar-color: var(--dark) var(--shade);
 }
 

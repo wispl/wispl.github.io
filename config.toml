@@ -1,4 +1,4 @@
-base_url = "https://wispl.github.io/"
+base_url = "https://copybara.me/"
 title = "Archive"
 description = "Archive"
 
@@ -16,7 +16,7 @@ bottom_footnotes = true
 definition_list = true
 
 [markdown.highlighting]
-style = "class"
+# style = "class"
 light_theme = "kanagawa-lotus"
 dark_theme = "kanagawa-dragon"
 

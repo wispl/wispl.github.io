@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	"dark": document.querySelector(".moon")
     };
 
+    const colorscheme = document.querySelector("meta[name=color-scheme]");
     const selected = localStorage.getItem("colorscheme") || "auto";
     icons[selected].style.display = "block";
 
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	localStorage.setItem("colorscheme", theme);
 	icons[current].style.display = "none";
 	icons[theme].style.display = "block";
-	toggle_theme(theme);
+	colorscheme.content = theme;
     });
 
     // Backlinks Graph
