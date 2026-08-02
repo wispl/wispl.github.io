@@ -1,12 +1,12 @@
 +++
 title = "GitOps Pipelines Example"
 date = 2026-05-29
-updated= 2026-06-06
+updated= 2026-06-08
 +++
 
 ## Pipeline Config {#pipeline-config}
 
-This is an example in GitLab, though I think it can be trivially ported elsewhere (me thinks)
+This is an example using GitLab, though I think it can be trivially ported elsewhere (me thinks)
 
 ```yaml
 stages:
@@ -57,7 +57,7 @@ As an aside, when using `sed`, things get a bit trickly in regards to quoting, s
 
 EDIT: I don't think making commits against the manifests repository is a good idea. If you store code in the same repository as your manifests, than it is probably fine. But as is the case with GitOps, the manifest repository is stored elsewhere from the code.
 
-Having access tokens with write access to another repository is rather dangerous, and if you have multiple projects, then it isn't scalable to do this setup multiple times. Instead, even if you have to use polling, something like Renovate (running in manifests repository) or ArgoCD ImageUpdater (or Kargo) is better.
+Having access tokens with write access to another repository is rather dangerous, and if you have multiple projects, then it isn't scalable to do this setup multiple times. Instead, even if you have to use polling, something like Renovate (running in manifests repository) or ArgoCD ImageUpdater (or Kargo) is better. See [Kubernetes Renovate](@/notes/20260608233300-kubernetes_renovate.md).
 
 
 ## Kustomization.yaml {#kustomization-dot-yaml}

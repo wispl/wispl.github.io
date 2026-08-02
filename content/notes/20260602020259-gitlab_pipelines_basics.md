@@ -1,7 +1,7 @@
 +++
 title = "GitLab Pipelines Basics"
 date = 2026-06-02
-updated= 2026-06-03
+updated= 2026-06-09
 +++
 
 ## Introduction {#introduction}
@@ -61,4 +61,56 @@ workflow:
      - if: '$CI_COMMIT_BRANCH == "dev" && $CI_PIPLINE_SOURCE == push'
        when: on_success
      - when: never
+```
+
+
+## Matrices {#matrices}
+
+You can use matricies to apply a job multiple times with different parameters. The example below runs builds on different images
+
+```yaml
+# ... snip ...
+.images:
+  parallel:
+    matrix:
+      - IMAGE: ["frontend", "backend", "database"]
+
+.buildah:
+  image: quay.io/buildah/stable
+  variables:
+    STORAGE_DRIVER: vfs
+    BUILDAH_ISOLATION: chroot
+  before_script:
+    - buildah login -u "$CI_REGISTRY_USER" --password $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
+# This will create three jobs,
+#  1. build [frontend]
+#  2. build [backend]
+#  3. build [database]
+build:
+  extends:
+    - .buildah
+    - .images
+  stage: build
+  script:
+    # ${IMAGE} is replaced by the value given in the arrays above,
+    #  1. first run, $IMAGE is frontend
+    #  2. second run, $IMAGE is backend
+    #  1. third run, $IMAGE is database
+    - buildah build -t "$CI_REGISTRY_IMAGE/${IMAGE}:${CI_COMMIT_SHA}" ${IMAGE}
+    - buildah push "$CI_REGISTRY_IMAGE/${IMAGE}:${CI_COMMIT_SHA}"
+```
+
+Be careful how you specify a matrix. The following is a dot product instead and will create four jobs, and not two jobs
+
+```yaml
+parallel:
+  matrix:
+    - TYPE: [premise, aws]
+      IMAGE: [frontend, backend]
+# Will make jobs
+#  1. premise, frontend
+#  2. premise, backend
+#  3. aws, frontend
+#  4. aws, backend
 ```
