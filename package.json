@@ -4,6 +4,6 @@
     "esbuild": "^0.28.0"
   },
   "scripts": {
-    "build": "esbuild static/main.js --bundle --minify --outfile=static/main.min.js"
+    "build": "esbuild static/main.js --bundle --minify --outfile=static/main.min.js && zola build"
   }
 }

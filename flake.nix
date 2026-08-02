@@ -17,6 +17,8 @@
         packages = with pkgs; [
           zola
           nodejs_24
+          pnpm
+          harper
         ];
       };
     });
